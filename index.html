@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="socer1">Môn Toán</label>
+    <input type="number" id="score1">
+    <br>
+    <label for="socer2">Môn Văn</label>
+    <input type="number" id="score2">
+    <br>
+    <label for="socer3">Môn Anh</label>
+    <input type="number" id="score3">
+    <br>
+    Khu Vực <select id="region">
+        <option value="KV1">KV1</option>
+        <option value="KV2">KV2</option>
+        <option value="KV2-NT">KV2-NT</option>
+        <option value="KV3">KV3</option>
+    </select>
+    <p id="result"></p>
+    <br>
+    <button type="button" onclick="calculate()">Tính điểm</button>
+
+    <script>
+        function calculate() {
+            let math = +document.getElementById("score1").value;
+            let literature = +document.getElementById("score2").value;
+            let english = +document.getElementById("score3").value;
+            let region = document.getElementById("region").value;
+
+            let regionScore = 0;
+            switch (region) {
+                case "KV1":
+                regionScore =  0.75;
+                    break;
+                case "KV2":
+                regionScore =  0.5;
+                    break;
+                case "KV2-NT":
+                regionScore =  0.25;
+                    break;
+                case "KV3":
+                regionScore = 0;
+                    break;
+                default:
+                regionScore = 0;
+                    break;
+            }
+            let totalScore = math + literature + english + regionScore;
+            alert(totalScore);
+            document.getElementById("result").innerHTML = "Tổng điểm:"+totalScore
+        }
+    </script>
+</body>
+
+</html>
